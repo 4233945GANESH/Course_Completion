@@ -1,0 +1,35 @@
+import java.util.*;
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String seq = sc.nextLine();
+        String[] str_arr = seq.split(" ");
+        long[] int_arr = new long[str_arr.length];
+        for(int i =0 ; i<str_arr.length; i++){
+            int_arr[i] = Integer.parseInt(str_arr[i]); 
+        }
+        
+        long[] sum_arr = new long[int_arr.length];
+        for(int i=0; i<int_arr.length; i++){
+            long sum =0;
+            for(int j =0; j<int_arr.length; j++){
+                if (i != j){
+                    sum+= int_arr[j];
+                }  
+            }
+            sum_arr[i] = sum;
+        }
+        long min = sum_arr[0];
+        long max =0;
+        for(int i=0; i<sum_arr.length; i++){
+            if (sum_arr[i] < min){
+                min = sum_arr[i];
+            }
+            if (sum_arr[i] > max){
+                max = sum_arr[i];
+            }
+        }
+          System.out.println(min + " " + max);
+
+    }
+} 
